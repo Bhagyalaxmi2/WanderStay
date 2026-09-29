@@ -1,0 +1,657 @@
+<% layout("/layouts/boilerplate") %>
+
+
+<!-- ======================================================
+     FILTER BAR
+======================================================= -->
+
+<style>
+
+    /* ================= FILTER BAR ================= */
+
+    #filters {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        padding: 1rem 2rem;
+
+        margin-bottom: 2rem;
+
+        border-bottom: 1px solid #eeeeee;
+
+        background-color: white;
+
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+    #filters::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    /* ================= EACH FILTER ================= */
+
+    .filter {
+        min-width: 75px;
+
+        text-align: center;
+
+        color: #717171;
+
+        cursor: pointer;
+
+        position: relative;
+
+        padding: 0.5rem 0;
+
+        flex-shrink: 0;
+
+        transition: 0.2s;
+    }
+
+
+    /* ICON */
+
+    .filter i {
+        font-size: 1.4rem;
+
+        display: block;
+
+        margin-bottom: 0.4rem;
+    }
+
+
+    /* TEXT */
+
+    .filter p {
+        margin: 0;
+
+        font-size: 0.75rem;
+
+        white-space: nowrap;
+    }
+
+
+    /* HOVER */
+
+    .filter:hover {
+        color: #222;
+    }
+
+
+    /* ACTIVE FILTER */
+
+    .filter.active {
+        color: #222;
+    }
+
+
+    .filter.active::after {
+        content: "";
+
+        position: absolute;
+
+        bottom: -1rem;
+
+        left: 0;
+
+        right: 0;
+
+        height: 2px;
+
+        background-color: #222;
+    }
+
+
+    /* ==================================================
+       FILTER RIGHT SIDE
+    ================================================== */
+
+    .filter-options {
+        margin-left: auto;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 1rem;
+
+        flex-shrink: 0;
+    }
+
+
+    /* FILTER BUTTON */
+
+    .filter-button {
+        border: 1px solid #ddd;
+
+        background: white;
+
+        border-radius: 12px;
+
+        padding: 0.7rem 1rem;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 0.5rem;
+
+        cursor: pointer;
+    }
+
+
+    .filter-button:hover {
+        border-color: #222;
+    }
+
+
+    /* ==================================================
+       TAX BOX
+    ================================================== */
+
+    .tax-box {
+        border: 1px solid #ddd;
+
+        border-radius: 12px;
+
+        padding: 0.6rem 1rem;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 0.8rem;
+
+        font-size: 0.8rem;
+
+        white-space: nowrap;
+    }
+
+
+    /* ==================================================
+       TOGGLE SWITCH
+    ================================================== */
+
+    .toggle {
+        position: relative;
+
+        width: 40px;
+
+        height: 24px;
+
+        display: inline-block;
+    }
+
+
+    .toggle input {
+        display: none;
+    }
+
+
+    .toggle-slider {
+        position: absolute;
+
+        inset: 0;
+
+        background: #bdbdbd;
+
+        border-radius: 20px;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+    }
+
+
+    .toggle-slider::before {
+        content: "";
+
+        position: absolute;
+
+        width: 18px;
+
+        height: 18px;
+
+        left: 3px;
+
+        top: 3px;
+
+        background: white;
+
+        border-radius: 50%;
+
+        transition: 0.3s;
+    }
+
+
+    .toggle input:checked + .toggle-slider {
+        background: #222;
+    }
+
+
+    .toggle input:checked + .toggle-slider::before {
+        transform: translateX(16px);
+    }
+
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media (max-width: 900px) {
+
+        #filters {
+            padding: 1rem;
+
+            gap: 1.2rem;
+        }
+
+        .filter-options {
+            display: none;
+        }
+    }
+
+</style>
+
+
+<!-- ======================================================
+     FILTERS
+======================================================= -->
+
+<div id="filters">
+
+    <!-- ALL -->
+
+    <div class="filter active" data-category="all">
+
+        <i class="fa-solid fa-house"></i>
+
+        <p>All</p>
+
+    </div>
+
+
+    <!-- FARMS -->
+
+    <div class="filter" data-category="Farms">
+
+        <i class="fa-solid fa-wheat-awn"></i>
+
+        <p>Farms</p>
+
+    </div>
+
+
+    <!-- ROOMS -->
+
+    <div class="filter" data-category="Rooms">
+
+        <i class="fa-solid fa-bed"></i>
+
+        <p>Rooms</p>
+
+    </div>
+
+
+    <!-- AMAZING VIEWS -->
+
+    <div class="filter" data-category="Amazing Views">
+
+        <i class="fa-solid fa-mountain-sun"></i>
+
+        <p>Amazing Views</p>
+
+    </div>
+
+
+    <!-- ICONIC CITIES -->
+
+    <div class="filter" data-category="Iconic Cities">
+
+        <i class="fa-solid fa-city"></i>
+
+        <p>Iconic Cities</p>
+
+    </div>
+
+
+    <!-- SURFING -->
+
+    <div class="filter" data-category="Surfing">
+
+        <i class="fa-solid fa-water"></i>
+
+        <p>Surfing</p>
+
+    </div>
+
+
+    <!-- POOLS -->
+
+    <div class="filter" data-category="Amazing Pools">
+
+        <i class="fa-solid fa-person-swimming"></i>
+
+        <p>Amazing Pools</p>
+
+    </div>
+
+
+    <!-- BEACH -->
+
+    <div class="filter" data-category="Beach">
+
+        <i class="fa-solid fa-umbrella-beach"></i>
+
+        <p>Beach</p>
+
+    </div>
+
+
+    <!-- CABINS -->
+
+    <div class="filter" data-category="Cabins">
+
+        <i class="fa-solid fa-house-chimney"></i>
+
+        <p>Cabins</p>
+
+    </div>
+
+
+    <!-- LAKEFRONT -->
+
+    <div class="filter" data-category="Lakefront">
+
+        <i class="fa-solid fa-water"></i>
+
+        <p>Lakefront</p>
+
+    </div>
+
+
+    <!-- ==================================================
+         RIGHT SIDE
+    ================================================== -->
+
+    <div class="filter-options">
+
+        <button class="filter-button">
+
+            <i class="fa-solid fa-sliders"></i>
+
+            Filters
+
+        </button>
+
+
+        <div class="tax-box">
+
+            <span>
+                Display total before taxes
+            </span>
+
+
+            <label class="toggle">
+
+                <input type="checkbox" id="taxToggle">
+
+                <span class="toggle-slider"></span>
+
+            </label>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     LISTINGS
+======================================================= -->
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
+
+    <% for (let listing of allListings) { %>
+
+
+        <!-- ==================================================
+             SINGLE LISTING
+        ================================================== -->
+
+        <div
+            class="col listing-card"
+            data-category="<%= listing.category || 'Other' %>"
+        >
+
+            <div class="card h-100 shadow-sm">
+
+
+                <!-- ================= IMAGE ================= -->
+
+                <% if (listing.image && listing.image.url) { %>
+
+                    <img
+                        src="<%= listing.image.url %>"
+                        class="card-img-top"
+                        alt="<%= listing.title %>"
+                        style="height: 220px; object-fit: cover;"
+                    >
+
+                <% } else { %>
+
+                    <div
+                        class="d-flex justify-content-center align-items-center"
+                        style="height: 220px; background: #eee;"
+                    >
+                        No Image
+                    </div>
+
+                <% } %>
+
+
+
+                <!-- ================= BODY ================= -->
+
+                <div class="card-body">
+
+
+                    <!-- TITLE -->
+
+                    <h5 class="card-title">
+
+                        <%= listing.title %>
+
+                    </h5>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <p class="card-text">
+
+                        <%= listing.description || "No description available." %>
+
+                    </p>
+
+
+                    <!-- LOCATION -->
+
+                    <p class="text-muted mb-2">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <%= listing.location %>
+
+                        <% if (listing.country) { %>
+
+                            , <%= listing.country %>
+
+                        <% } %>
+
+                    </p>
+
+
+                    <!-- PRICE -->
+
+                    <p class="card-text">
+
+                        <strong>
+
+                            ₹ <%= listing.price.toLocaleString("en-IN") %>
+
+                        </strong>
+
+                        / night
+
+                    </p>
+
+
+                    <!-- CATEGORY -->
+
+                    <% if (listing.category) { %>
+
+                        <p class="text-muted mb-0">
+
+                            <i class="fa-solid fa-tag"></i>
+
+                            <%= listing.category %>
+
+                        </p>
+
+                    <% } %>
+
+
+                </div>
+
+
+
+                <!-- ================= FOOTER ================= -->
+
+                <div class="card-footer bg-white">
+
+                    <a
+                        href="/listings/<%= listing._id %>"
+                        class="btn btn-outline-dark w-100"
+                    >
+                        View Listing
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    <% } %>
+
+</div>
+
+
+
+<!-- ======================================================
+     FILTER JAVASCRIPT
+======================================================= -->
+
+<script>
+
+    // =========================================
+    // GET ALL FILTER BUTTONS
+    // =========================================
+
+    const filters = document.querySelectorAll(".filter");
+
+    // Get all listing cards
+
+    const listings = document.querySelectorAll(".listing-card");
+
+
+    // =========================================
+    // ADD CLICK EVENT TO EACH FILTER
+    // =========================================
+
+    filters.forEach(filter => {
+
+        filter.addEventListener("click", function () {
+
+            // -----------------------------------------
+            // REMOVE ACTIVE CLASS FROM ALL FILTERS
+            // -----------------------------------------
+
+            filters.forEach(item => {
+
+                item.classList.remove("active");
+
+            });
+
+
+            // -----------------------------------------
+            // ADD ACTIVE CLASS TO CLICKED FILTER
+            // -----------------------------------------
+
+            this.classList.add("active");
+
+
+            // -----------------------------------------
+            // GET SELECTED CATEGORY
+            // -----------------------------------------
+
+            const selectedCategory =
+                this.getAttribute("data-category");
+
+
+            // -----------------------------------------
+            // SHOW / HIDE LISTINGS
+            // -----------------------------------------
+
+            listings.forEach(listing => {
+
+                const listingCategory =
+                    listing.getAttribute("data-category");
+
+
+                // -----------------------------------------
+                // SHOW ALL
+                // -----------------------------------------
+
+                if (selectedCategory === "all") {
+
+                    listing.style.display = "";
+
+                }
+
+
+                // -----------------------------------------
+                // SHOW SELECTED CATEGORY
+                // -----------------------------------------
+
+                else if (listingCategory === selectedCategory) {
+
+                    listing.style.display = "";
+
+                }
+
+
+                // -----------------------------------------
+                // HIDE OTHER CATEGORIES
+                // -----------------------------------------
+
+                else {
+
+                    listing.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    });
+
+</script>

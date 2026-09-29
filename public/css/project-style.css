@@ -1,0 +1,499 @@
+/* ======================================================
+   GLOBAL WEBSITE
+====================================================== */
+
+body {
+    background-color: #f5f3ef;
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ======================================================
+   MAIN CONTENT
+====================================================== */
+
+main.container {
+    min-height: 75vh;
+    padding-top: 35px;
+    padding-bottom: 60px;
+}
+
+
+/* ======================================================
+   FORM PAGE
+====================================================== */
+
+.listing-form-container {
+    max-width: 650px;
+    margin: 30px auto 60px;
+}
+
+
+/* ======================================================
+   FORM CARD
+====================================================== */
+
+.listing-form-card {
+    background: #ffffff;
+
+    padding: 35px 40px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e7e3dc;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+
+/* ======================================================
+   FORM HEADING
+====================================================== */
+
+.form-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-heading h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-heading p {
+    color: #777;
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+
+/* ======================================================
+   FORM LABELS
+====================================================== */
+
+.listing-form-card .form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+
+/* ======================================================
+   INPUTS
+====================================================== */
+
+.listing-form-card .form-control {
+    border: 1px solid #d9d6d0;
+
+    border-radius: 10px;
+
+    padding: 12px 14px;
+
+    background-color: #fafafa;
+
+    font-size: 15px;
+
+    transition: all 0.2s ease;
+}
+
+
+/* INPUT FOCUS */
+
+.listing-form-card .form-control:focus {
+    background-color: #ffffff;
+
+    border-color: #555;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+
+/* PLACEHOLDER */
+
+.listing-form-card
+.form-control::placeholder {
+    color: #aaa;
+}
+
+
+/* ======================================================
+   TEXTAREA
+====================================================== */
+
+.listing-form-card textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* ======================================================
+   BUTTONS
+====================================================== */
+
+.listing-form-card .btn {
+    padding: 11px 24px;
+
+    border-radius: 10px;
+
+    font-weight: 500;
+}
+
+
+/* CREATE BUTTON */
+
+.listing-form-card .btn-dark {
+    background-color: #222;
+    border-color: #222;
+}
+
+.listing-form-card .btn-dark:hover {
+    background-color: #000;
+    border-color: #000;
+}
+
+
+/* CANCEL BUTTON */
+
+.listing-form-card
+.btn-outline-secondary {
+    border-color: #d0cdc7;
+
+    color: #555;
+}
+
+.listing-form-card
+.btn-outline-secondary:hover {
+    background-color: #f1efeb;
+
+    color: #222;
+}
+
+
+/* ======================================================
+   LISTINGS PAGE
+====================================================== */
+
+.card {
+    border: none;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background-color: #ffffff;
+
+    transition: all 0.25s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.10);
+}
+
+
+/* ======================================================
+   LISTING IMAGE
+====================================================== */
+
+.card-img-top {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.02);
+}
+
+
+/* ======================================================
+   LISTING TITLE
+====================================================== */
+
+.card-title {
+    font-weight: 600;
+}
+
+
+/* ======================================================
+   LISTING PAGE BUTTON
+====================================================== */
+
+.btn-dark {
+    border-radius: 10px;
+}
+
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 768px) {
+
+    .listing-form-container {
+        margin: 20px auto 40px;
+    }
+
+    .listing-form-card {
+        padding: 25px 20px;
+    }
+
+    .form-heading h1 {
+        font-size: 25px;
+    }
+
+}
+
+
+/* ======================================================
+   REVIEWS
+====================================================== */
+
+.reviews-section {
+    margin-bottom: 50px;
+}
+
+
+/* ======================================================
+   REVIEW FORM
+====================================================== */
+
+.review-form-card {
+    background: #ffffff;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e5e2dc;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.05);
+
+    max-width: 700px;
+}
+
+
+/* ======================================================
+   REVIEW CARD
+====================================================== */
+
+.review-card {
+    background: #ffffff;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e2dc;
+
+    min-height: 150px;
+
+    transition: 0.2s ease;
+}
+
+
+.review-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+
+/* ======================================================
+   STAR RATING
+====================================================== */
+
+.review-rating {
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+.review-rating span {
+    color: #f5a623;
+}
+
+.review-rating .empty-star {
+    color: #d8d8d8;
+}
+
+
+/* ======================================================
+   COMMENT
+====================================================== */
+
+.review-comment {
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: #444;
+
+    margin-bottom: 10px;
+}
+
+
+/* ======================================================
+   REVIEW FORM INPUTS
+====================================================== */
+
+.review-form-card .form-control,
+.review-form-card .form-select {
+    border-radius: 10px;
+
+    border: 1px solid #d9d6d0;
+
+    padding: 11px;
+}
+
+
+.review-form-card .form-control:focus,
+.review-form-card .form-select:focus {
+    border-color: #555;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+/* Login + Signup common styling */
+.login-container {
+    width: 60%;
+    max-width: 700px;
+    margin: 80px auto;
+}
+
+/* Heading */
+.login-container h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.login-container .form-label {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+/* Inputs */
+.login-container .form-control {
+    width: 100%;
+    height: 42px;
+    margin-bottom: 5px;
+}
+
+/* Button */
+.login-container .btn {
+    margin-top: 5px;
+}
+
+/* Bottom text */
+.login-container p {
+    font-size: 16px;
+}
+/* =========================
+   AUTH BUTTONS
+========================= */
+
+.login-btn {
+    color: #0d6efd !important;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.login-btn:hover {
+    color: #084298 !important;
+}
+
+
+/* Sign Up */
+
+.signup-btn {
+    background-color: #198754;
+    color: white !important;
+    border-radius: 6px;
+    padding: 8px 15px !important;
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.signup-btn:hover {
+    background-color: #146c43;
+    color: white !important;
+}
+
+
+/* Logout */
+
+/* ================================
+   LOGOUT BUTTON
+================================ */
+
+.logout-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content !important;
+    min-width: auto !important;
+
+    flex: 0 0 auto !important;
+
+    padding: 8px 18px !important;
+
+    margin: 0 0 0 10px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    color: white !important;
+    background-color: #dc3545 !important;
+
+    border: 1px solid #dc3545 !important;
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Hover */
+
+.logout-btn:hover {
+    background-color: #b02a37 !important;
+    border-color: #b02a37 !important;
+    color: white !important;
+
+    transform: translateY(-1px);
+}
+
+
+.location-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: #f1f3f5;
+    color: #555;
+    font-size: 14px;
+}
+
+.location-tag i {
+    margin-right: 5px;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+

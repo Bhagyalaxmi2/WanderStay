@@ -1,0 +1,31 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="login-container">
+
+    <h1>Logout</h1>
+
+    <p class="mt-4">
+        Are you sure you want to logout?
+    </p>
+
+    <form action="/logout" method="POST">
+
+        <button type="submit" class="btn btn-success">
+            Logout
+        </button>
+
+        <a
+            href="/listings"
+            class="btn btn-outline-secondary ms-2"
+        >
+            Cancel
+        </a>
+        <div class="text-end mb-3">
+    <a href="/forgot-password" class="text-decoration-none">
+        Forgot Password?
+    </a>
+</div>
+
+    </form>
+
+</div>
