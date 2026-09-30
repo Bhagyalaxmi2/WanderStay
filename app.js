@@ -3,7 +3,7 @@
 // ======================================================
 
 require("dotenv").config();
-
+ 
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -11,7 +11,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 
 const session = require("express-session");
-const MongoStore=require("connect-mongo");
+const { MongoStore } = require("connect-mongo");
 const flash = require("connect-flash");
 
 const passport = require("passport");
@@ -42,21 +42,20 @@ const ExpressError = require("./utils/ExpressError.js");
 
 const app = express();
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 
 // ======================================================
 // 5. MONGODB CONNECTION
 // ======================================================
-
-const mongo_url = "mongodb://127.0.0.1:27017/wanderlust";
- //const dbUrl=process.env.ATLAS_URI;
+const mongo_url =
+    process.env.ATLAS_URI ||
+    "mongodb://127.0.0.1:27017/wanderlust";
 
 async function main() {
-
     await mongoose.connect(mongo_url);
-
 }
+
 
 main()
     .then(() => {
@@ -118,44 +117,33 @@ app.use(
 // 9. SESSION
 // ======================================================
 
-//  const store= MongoStore.createKrupteinAdapter({
-//     mongoose:dbUrl,
-//     crypto:{
-//         secret:process.env.SECRET,
-//     },
-//     touchAfter:24*24* 3600,
-//  });
-//  store.on("error",()=>{
-//     console.log("Erroe in mongos session", err);
-    
-//  });
- 
+const store = MongoStore.create({
+    mongoUrl: process.env.ATLAS_URI,
+    dbName: "wanderlust",
+    collectionName: "sessions",
+    ttl: 14 * 24 * 60 * 60
+});
+
 const sessionOptions = {
-  //  store,
-
-    secret: "mysupersecretecode",
-
+    store: store,
+    secret: process.env.SECRET || "mysupersecretecode",
     resave: false,
-
     saveUninitialized: false,
 
     cookie: {
-
         maxAge: 1000 * 60 * 60 * 24 * 15,
-
         httpOnly: true,
-
-        secure: false
-
+        secure: process.env.NODE_ENV === "production"
     }
-
 };
 
+app.use(session(sessionOptions));
 
-app.use(
-    session(sessionOptions)
-);
 
+app.use((req, res, next) => {
+    res.locals.currUser = req.user;
+    next();
+});
 
 // ======================================================
 // 10. FLASH
